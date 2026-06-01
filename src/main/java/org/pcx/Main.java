@@ -16,7 +16,7 @@ public class Main {
 
         //Cargo el bot de discord.
 
-        /*
+
         File f = new File("token.txt");
         try(Scanner tokenreader = new Scanner(f))
         {
@@ -30,8 +30,8 @@ public class Main {
                 System.out.println("No se ha proporcionado un token");
             }
         }
-        catch(FileNotFoundException e){}
-        */
+        catch(FileNotFoundException e){System.out.println(e);}
+
 
     }
 }
