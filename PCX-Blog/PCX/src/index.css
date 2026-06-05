@@ -1,0 +1,26 @@
+/* FUENTES */
+@font-face {
+    font-family: 'fuente1';
+    src: url('./assets/Bebas_Neue/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'fuente-texto';
+    src: url('./assets/Google_Sans/GoogleSans-VariableFont_GRAD\,opsz\,wght.ttf');
+}
+
+@font-face {
+    font-family: 'fuente-titulo-entrada';
+    src: url('./assets/Gokart\ Bubble.otf');
+}
+
+@font-face {
+    font-family: 'fuente-texto-entrada';
+    src: url('./assets/sanva\ font.ttf');
+}
+
+body
+{
+    background: linear-gradient(135deg,#ecedf0 0%,#c7d5f1 50%,#9bb5e7 100%);
+}
+

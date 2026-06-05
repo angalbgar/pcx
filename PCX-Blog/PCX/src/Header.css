@@ -1,0 +1,150 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: linear-gradient(135deg,#0b1220 0%,#0f1b33 50%,#0b1220 100%);
+    color: #f5f7fa;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35),inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    position: sticky;
+    font-family: "fuente1";
+    transition: 0.5s;
+
+}
+
+header img
+{
+    width:100px;
+    height: auto;
+    margin-right: 35px;
+    transition:1s;
+}
+header img:hover
+{
+    transform:scale(120%);
+}
+.header__logo
+{
+    display:flex;
+    align-items: center;
+    gap:15px;
+
+}
+.header__logo h1 {
+    font-size:40px;
+    
+    letter-spacing: 3.5px;
+    margin-left:0.5px;
+    background: linear-gradient(90deg, #60a5fa, #38bdf8);
+    /*efecto para hacer un degradado en un texto, omitiendo el background*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition:0.5s;
+}
+
+/* NAV */
+.header__nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 40px;
+    letter-spacing: 0.2px;
+
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+
+/* underline animado hecho con IA */
+.header__nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #38bdf8, #60a5fa);
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+.header__nav a:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.header__nav a:hover::after {
+    width: 100%;
+}
+
+.header__logo h1:hover
+{
+    transform:scale(110%);
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top,
+        rgba(56, 189, 248, 0.08),
+        transparent 60%
+    );
+    pointer-events: none;
+}
+/* underline animado hecho con IA */
+
+/* el responsive */
+
+
+
+@media (max-width: 850px)
+{
+    .header__logo h1
+    {
+        display:none;
+
+    }
+    
+    header img
+    {
+        display:inline;
+        margin:0;
+    }
+}
+
+@media (min-width: 850px) 
+{
+    header
+    {
+
+    }
+    header img
+    {
+        display:none;
+    }
+
+}
+
+@media (min-width: 1000px) {
+    header
+    {
+
+    }
+    header img
+    {
+        display:inline;
+    }
+    
+}
+
+
