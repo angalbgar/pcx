@@ -7,7 +7,7 @@ public class EmbedBienvenida
     public EmbedBienvenida()
     {
         EmbedBuilder embed_bienvenida = new EmbedBuilder();
-        bienvenida.setTitle("**Bienivenido al servidor**");
+        embed_bienvenida.setTitle("**Bienivenido al servidor**");
 
     }
 }

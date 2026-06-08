@@ -1,28 +1,24 @@
 package org.pcx.utilities;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.util.Scanner;
 
 public class HBIP {
 
-    public static void main(String[] args) {
+    private String password;
 
-        Scanner scanner = new Scanner(System.in);
+    public HBIP(String password) {
 
-        System.out.print("Introduce una contraseña: ");
-
-        String password = scanner.nextLine();
+        this.password = password;
 
         try {
-
-            // =========================
-            // 1. SHA-1
-            // =========================
 
             MessageDigest md =
                     MessageDigest.getInstance("SHA-1");
@@ -43,21 +39,11 @@ public class HBIP {
             String sha1Hash =
                     hashBuilder.toString();
 
-            System.out.println("SHA-1: " + sha1Hash);
-
-            // =========================
-            // 2. Prefix y suffix
-            // =========================
-
             String prefix =
                     sha1Hash.substring(0, 5);
 
             String suffix =
                     sha1Hash.substring(5);
-
-            // =========================
-            // 3. Llamada API
-            // =========================
 
             String url =
                     "https://api.pwnedpasswords.com/range/" + prefix;
@@ -77,12 +63,10 @@ public class HBIP {
                             HttpResponse.BodyHandlers.ofString()
                     );
 
-            // =========================
-            // 4. Buscar coincidencia
-            // =========================
-
             boolean found = false;
 
+            String resultado = "";
+            String resultado1 = "";
             String[] lines =
                     response.body().split("\\r?\\n");
 
@@ -99,28 +83,51 @@ public class HBIP {
 
                 if (hashSuffix.equalsIgnoreCase(suffix)) {
 
-                    System.out.println(
-                            "Contraseña comprometida"
-                    );
-
-                    System.out.println(
-                            "Filtrada " + count + " veces"
-                    );
+                    resultado1 =
+                            "Contraseña comprometida\n" +
+                                    "Filtrada " + count + " veces\n";
 
                     found = true;
-
                     break;
                 }
             }
 
             if (!found) {
 
-                System.out.println("Contraseña no encontrada");
+                resultado =
+                        "Contraseña no encontrada en las filtraciones conocidas.\n";
             }
 
-        } catch (Exception e) {
+            // Guardo resultado
 
-            e.printStackTrace();
-        }
+            File f = new File("resultado.txt");
+
+            if (!f.exists())
+            {
+                try
+                {
+                    f.createNewFile();
+                }
+                catch(IOException e){System.out.println(e);
+                }
+            }
+
+            try (FileWriter writer =
+                    new FileWriter("resultado.txt",true))
+            {
+                writer.write("------------------------------\n");
+                writer.write("Contraseña: " + password+"\n");
+
+                writer.write(resultado1);
+                writer.write(resultado);
+                writer.write("------------------------------\n\n");
+
+            }
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
     }
+
 }
