@@ -20,6 +20,12 @@
             <artifactId>JDA</artifactId>
             <version>6.4.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.3.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>
