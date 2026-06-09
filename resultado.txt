@@ -14,3 +14,32 @@ Contraseña: aSDEQW
 Contraseña no encontrada en las filtraciones conocidas.
 ------------------------------
 
+------------------------------
+Contraseña: RGKGEOKEJL
+Contraseña no encontrada en las filtraciones conocidas.
+------------------------------
+
+------------------------------
+Contraseña: asd
+Contraseña comprometida
+Filtrada 186467 veces
+------------------------------
+
+------------------------------
+Contraseña: asdddasd
+Contraseña comprometida
+Filtrada 361 veces
+------------------------------
+
+------------------------------
+Contraseña: i
+Contraseña comprometida
+Filtrada 252980 veces
+------------------------------
+
+------------------------------
+Contraseña: asddsaads
+Contraseña comprometida
+Filtrada 363 veces
+------------------------------
+
