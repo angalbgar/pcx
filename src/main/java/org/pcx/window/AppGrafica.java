@@ -1,6 +1,5 @@
 package org.pcx.window;
 
-import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -9,14 +8,15 @@ import javax.swing.border.LineBorder;
 import org.pcx.utilities.*;
 import java.io.*;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import org.pcx.window.Fuente;
+
+import org.pcx.utilities.Fuente;
 
 import static javax.swing.SwingConstants.CENTER;
 
 public class AppGrafica {
     private File f;
     private boolean contador_hash = true;
+    private boolean contador_jfc = true;
     public AppGrafica()
     {
         //CREACIÓN DE COMPONENTES GRÁFICOS
@@ -51,6 +51,9 @@ public class AppGrafica {
         JLabel lb_inicio_info = new JLabel("<html>Bienvenido a la aplicación. En esta aplicación se podrá acceder a las diferentes funcionalidades de ciberseguridad en las que se puede navegar por el menú.</html>");
         JLabel lb_inicio = new JLabel("Pantalla principal");
 
+        ImageIcon logo = new ImageIcon("./assets/logo.png");
+        JLabel imagen_logo = new JLabel(logo);
+
         //DEFINO OBJETOS DE LA FUNCIONALIDAD CONTRASEÑA.
 
         JPasswordField f1_text = new JPasswordField();
@@ -65,7 +68,7 @@ public class AppGrafica {
 
         // DEFINO OBJETOS DE LA FUNCIÓN HASH.
 
-        JLabel f2_titulo = new JLabel("Funcion HASH");
+        JLabel f2_titulo = new JLabel("Función HASH");
         JLabel f2_info = new JLabel("<html>Introduce un archivo para calcular su función HASH.</html>");
         JFileChooser f2_jfc = new JFileChooser();
         JButton f2_b_insertar = new JButton("Seleccionar Archivo");
@@ -105,10 +108,13 @@ public class AppGrafica {
             {
                 f2_jfc.showOpenDialog(null);
                 f = f2_jfc.getSelectedFile();
+
+                if(!contador_jfc)
+                    f2_jtf_result.setText("");
                 f2_info.setText("<html>Archivo seleccionado: "+f.getAbsolutePath()+"</html>");
             };
 
-            // LISTENER HASH PARA DETECTAR LA PULSACIÓN DEL BOTÓN MD5
+            // LISTENERS HASH PARA DETECTAR LA PULSACIÓN DEL BOTÓN MD5, SHA1,SHA256 Y SHA512
 
             ActionListener a_hash_md5 = z ->
             {
@@ -119,6 +125,7 @@ public class AppGrafica {
                 } catch (IOException e) {
                     System.out.println(e);
                 } catch (Exception e) {
+                    contador_jfc = false;
                     f2_jtf_result.setText("No se ha seleccionado ningún archivo.");
                 }
 
@@ -136,6 +143,7 @@ public class AppGrafica {
                 } catch (IOException e) {
                     System.out.println(e);
                 } catch (Exception e) {
+                    contador_jfc = false;
                     f2_jtf_result.setText("No se ha seleccionado ningún archivo.");
                 }
                 p3.add(f2_jtf_result);
@@ -151,6 +159,7 @@ public class AppGrafica {
             } catch (IOException e) {
                 System.out.println(e);
             } catch (Exception e) {
+                contador_jfc = false;
                 f2_jtf_result.setText("No se ha seleccionado ningún archivo.");
             }
             p3.add(f2_jtf_result);
@@ -166,6 +175,7 @@ public class AppGrafica {
             } catch (IOException e) {
                 System.out.println(e);
             } catch (Exception e) {
+                contador_jfc = false;
                 f2_jtf_result.setText("No se ha seleccionado ningún archivo.");
             }
             p3.add(f2_jtf_result);
@@ -215,7 +225,7 @@ public class AppGrafica {
 
         //IMPLEMENTACIÓN DE LAYOUTS
         frame.setLayout(new BorderLayout());
-        inicio.setLayout(new GridLayout(2,1));
+        inicio.setLayout(new GridLayout(3,1));
 
         p1.setLayout(new FlowLayout());
         p2.setLayout(new GridLayout(4,1));
@@ -226,6 +236,7 @@ public class AppGrafica {
 
         //IMPLEMENTO PANEL DE LA SECCIÓN PRINCIPAL
         inicio.add(lb_inicio);
+        inicio.add(imagen_logo);
         inicio.add(lb_inicio_info);
 
         //IMPLEMENTO LOS ELEMENTOS PANEL DE LA FUNCIONALIDAD CONTRASEÑA
@@ -252,7 +263,7 @@ public class AppGrafica {
         //CONFIGURACIONES BÁSICAS
         frame.setSize(1500,1500);
         frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
         p1.setBackground(new Color(14, 85, 92));
         p1.setVisible(true);
@@ -279,14 +290,15 @@ public class AppGrafica {
         Color cian_azul = new Color(87, 180, 244);
         Color azul_oscuro = new Color(5, 97, 161);
         Color gris = new Color(198, 189, 189);
-        //ESTILOS PARA LA SECCIÓN PRINCIPAL
-        lb_inicio.setBackground(cian);
-        lb_inicio_info.setBackground(cian);
 
+        //ESTILOS PARA LA SECCIÓN PRINCIPAL
+        lb_inicio.setBackground(gris);
+        lb_inicio_info.setBackground(gris);
+        imagen_logo.setBackground(gris);
         // estas lineas se ponen para que se pinte el background porque una label por defecto no lo hace
         lb_inicio.setOpaque(true);
         lb_inicio_info.setOpaque(true);
-
+        imagen_logo.setOpaque(true);
         lb_inicio.setFont(fuente_titulo);
         lb_inicio_info.setFont(fuente_jpf);
 
@@ -297,9 +309,9 @@ public class AppGrafica {
 
         // ESTILOS PARA LA SECCIÓN CONTRASEÑA
         f1_text.setBackground(cian_azul);
-        f1_result.setBackground(cian);
-        f1_info.setBackground(cian);
-        f1_lb.setBackground(cian);
+        f1_result.setBackground(gris);
+        f1_info.setBackground(gris);
+        f1_lb.setBackground(gris);
 
         f1_result.setOpaque(true);
         f1_info.setOpaque(true);
@@ -310,7 +322,7 @@ public class AppGrafica {
         f1_info.setFont(fuente_etiquetas);
         f1_result.setFont(fuente_etiquetas);
 
-        f1_info.setHorizontalAlignment(SwingConstants.LEFT);
+        f1_info.setHorizontalAlignment(SwingConstants.CENTER);
         f1_info.setVerticalAlignment(SwingConstants.CENTER);
 
         f1_result.setHorizontalAlignment(SwingConstants.LEFT);
@@ -351,7 +363,7 @@ public class AppGrafica {
         f2_titulo.setOpaque(true);
         f2_info.setOpaque(true);
 
-        f2_titulo.setFont(fuente_etiquetas);
+        f2_titulo.setFont(fuente_jpf);
         f2_info.setFont(fuente_etiquetas);
         f2_jtf_result.setFont(fuente_etiquetas);
         f2_b_insertar.setFont(fuente_etiquetas);

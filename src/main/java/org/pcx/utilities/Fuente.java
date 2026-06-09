@@ -1,4 +1,4 @@
-package org.pcx.window;
+package org.pcx.utilities;
 
 import java.awt.*;
 import java.io.File;

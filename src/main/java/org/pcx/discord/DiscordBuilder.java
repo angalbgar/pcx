@@ -19,9 +19,10 @@ public class DiscordBuilder {
                         GatewayIntent.MESSAGE_CONTENT
                 )
                 .addEventListeners(new Configurador())
-                .addEventListeners(new FuncionAviso())
+                //.addEventListeners(new FuncionAviso())
                 .build();
         System.out.println("Bot encendido");
+
 
 
     }

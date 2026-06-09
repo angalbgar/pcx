@@ -14,32 +14,12 @@ public class Configurador extends ListenerAdapter
 
     public void onMessageReceived(MessageReceivedEvent event)
     {
-        String jdbc_url = "jdbc:mysql://localhost:3307/practicas";
-        try ( Connection conn = DriverManager.getConnection(jdbc_url,"root","root");) {
 
-            System.out.println("Conexión establecida con la BBDD");
-
-        } catch(SQLException se) {
-            se.printStackTrace();
-        }
 
             //para q si el bot escribe, que no lea su propio mensaje
             if (event.getAuthor().isBot()) return;
 
-        /* esto es para decirle al bot que solo lea un canal, ignorando el resto.
-        Ya que por defecto este listener escuchará por todos los canales.
-        */
-
-            String canal_detectado = event.getChannel().getId();
-            //TextChannel textChannel = guild.getTextChannelById(channelId);
-
-            //if (textChannel != null) {
-            // Existe y además es un canal de texto
-            //}
-
-        if (!event.getChannel().getId().equals(canal_detectado)) return;
-
-        pedirIDCanal(event);
+        pedirIDServidor(event);
         String id_canal_avisos = pedirIDCanal(event);
 
     }
@@ -94,13 +74,22 @@ public class Configurador extends ListenerAdapter
             boolean existe = event.getGuild().getGuildChannelById(id_canal_avisos) != null;
 
             if (existe) {
-                event.getChannel().sendMessage("Configuración completada correctamente. Utiliza !aviso **[mensaje]** para crear anuncios en el servidor.").queue();
-                return id_canal_avisos;
-            } else {
-                event.getChannel().sendMessage("Canal no encontrado en el servidor. Vuelve a ejecutar !configurador").queue();
-            }
+                esperandoIdCanal.remove(event.getAuthor().getIdLong());
 
-            esperandoIdCanal.remove(event.getAuthor().getIdLong());
+                event.getChannel()
+                        .sendMessage("Configuración completada correctamente.")
+                        .queue();
+                String jdbc_url = "jdbc:mysql://localhost:3307/discord";
+                try ( Connection conn = DriverManager.getConnection(jdbc_url,"root","root");) {
+
+                    System.out.println("Conexión establecida con la BBDD");
+
+                } catch(SQLException se) {
+                    se.printStackTrace();
+                }
+
+                return id_canal_avisos;
+            }
 
         }
         return null;
