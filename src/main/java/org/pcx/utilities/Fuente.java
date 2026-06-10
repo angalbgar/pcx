@@ -20,7 +20,7 @@ public class Fuente
                 fuente = Font.createFont(
                         Font.TRUETYPE_FONT,
                         new File("./fuentes/sanva_font.ttf")
-                ).deriveFont(Font.BOLD,24f);
+                ).deriveFont(Font.BOLD,24);
             }
             catch (IOException e) {System.out.println(e);}
             catch (FontFormatException e){System.out.println(e);}
@@ -32,7 +32,7 @@ public class Fuente
                 fuente = Font.createFont(
                         Font.TRUETYPE_FONT,
                         new File("./fuentes/sanva_font.ttf")
-                ).deriveFont(Font.BOLD,80f);
+                ).deriveFont(Font.BOLD,80);
             }
             catch (IOException  e) {System.out.println(e);}
             catch (FontFormatException e){System.out.println(e);}
@@ -42,7 +42,7 @@ public class Fuente
                 fuente = Font.createFont(
                         Font.TRUETYPE_FONT,
                         new File("./fuentes/sanva_font.ttf")
-                ).deriveFont(Font.BOLD,50f);
+                ).deriveFont(Font.BOLD,50);
             }
             catch (IOException  e) {System.out.println(e);}
             catch (FontFormatException e){System.out.println(e);}

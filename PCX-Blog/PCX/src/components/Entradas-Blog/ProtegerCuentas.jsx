@@ -1,5 +1,6 @@
 import React from "react";
 import "../../Blog.css"
+import { Link } from "react-router-dom";
 
 function ProtegerCuentas() {
     return (
@@ -41,6 +42,11 @@ function ProtegerCuentas() {
     Dedicar unos segundos a verificar la autenticidad de un mensaje puede evitar
     importantes pérdidas de información y dinero.
   </p>
+
+      <Link className="enlace" to="/blog">
+          Atrás
+      </Link>
+
 </article>
 
     );

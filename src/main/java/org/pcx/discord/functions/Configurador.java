@@ -43,7 +43,6 @@ public class Configurador extends ListenerAdapter
 
                 esperandoIdCanal.put(event.getAuthor().getIdLong(), true);
 
-
             }
             else
             {
@@ -51,7 +50,6 @@ public class Configurador extends ListenerAdapter
             }
 
             esperandoIdServidor.remove(event.getAuthor().getIdLong());
-
 
         }
 

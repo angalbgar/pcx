@@ -16,8 +16,8 @@ function Header() {
             <nav className="header__nav">
                 <ul>
                     <li><Link to="/blog">Blog</Link></li>
-                    <li><a href="/noticias">Noticias</a></li>
-                    <li><a href="/quien-somos">Quién somos</a></li>
+                    <li><Link to="/noticias">Noticias</Link></li>
+                    <li><Link to="/quien-somos">Quién Somos</Link></li>
                 </ul>
             </nav>
         </header>

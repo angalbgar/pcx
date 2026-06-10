@@ -1,5 +1,6 @@
 import React from "react";
 import "../Main.css";
+import { Link } from "react-router-dom";
 
 function Main() {
     return (
@@ -8,21 +9,24 @@ function Main() {
                 <h1>Página Principal</h1>
             </div>
             
-    <div className="contenedor">
-        <div>
-            <img className="img" src="./public/Foto_Hacker.jpg"/>
-
-            <h2>Título</h2>
-            <p>Este texto aparecerá a la derecha de la imagen.</p>
-        </div>
+    <div className="contenedor_principal1">
+            <h2 className="titulo-main2">¿Qué es ProjectCodeX?</h2>
+            <p>ProjectCodeX es una empresa de ciberseguridad especializada en ofrecer soluciones a la gente para que pueda mantener su seguridad en el mundo digital.</p>
+            <img src="./main.gif"/>
+            <br/>
+            <h2 className="titulo-main2">¿Qué ofrecemos?</h2>
+            <br/>
+            <ul>
+                <li>Acceso a la aplicación beta de seguridad</li>
+                <li>Funciones de seguridad para comprobar integridad de archivos y contraseñas filtradas.</li>
+                <li>Acceso a una comunidad privada carismática.</li>
+            </ul>
+            
+            <p> Por último en esta web podrás acceder al       <Link className="enlace" to="/blog">
+          Blog
+      </Link> para leer todas nuestras recomendaciones.</p>
     </div>
-            <span>
-                <p>ProjectCodeX es una plataforma de cibeseguridad orientada a centralizar soluciones de tu día a día.</p>
-                <p>Visita el Blog para comprobar qué consejos o buenas prácticas tenemos para ofrecerte.</p>
-                <p></p>                
-            </span>
         </>
-
     );
 }
 
