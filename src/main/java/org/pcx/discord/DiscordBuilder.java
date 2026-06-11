@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.pcx.discord.functions.Configurador;
 import org.pcx.discord.functions.FuncionAviso;
+import org.pcx.discord.functions.Informacion;
 
 import java.awt.*;
 import java.util.Scanner;
@@ -27,11 +28,10 @@ public class DiscordBuilder
                         GatewayIntent.MESSAGE_CONTENT
                 )
                 .addEventListeners(new Configurador())
-                //.addEventListeners(new FuncionAviso())
+                .addEventListeners(new FuncionAviso())
+                .addEventListeners(new Informacion())
                 .build();
         System.out.println("Bot encendido");
-
-
 
     }
 }

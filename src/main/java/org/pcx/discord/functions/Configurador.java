@@ -29,46 +29,6 @@ public class Configurador extends ListenerAdapter
 
     }
 
-    /*
-    *  public void pedirIDServidor(MessageReceivedEvent event)
-    {
-        if (esperandoIdServidor.containsKey(event.getAuthor().getIdLong()))
-        {
-            String id_servidor = event.getMessage().getContentRaw();
-
-            String id_servidor_actual = event.getGuild().getId();
-
-
-
-            if (id_servidor.equals(id_servidor_actual))
-            {
-
-                event.getChannel().sendMessage("ID correcto.").queue();
-                event.getChannel().sendMessage("Escribe el ID del **canal** para mandar avisos:").queue();
-
-                esperandoIdCanal.put(event.getAuthor().getIdLong(), true);
-
-            }
-            else
-            {
-                event.getChannel().sendMessage("El ID proporcionado es incorrecto. Vuelve a ejecutar !configurador.").queue();
-            }
-
-            esperandoIdServidor.remove(event.getAuthor().getIdLong());
-
-        }
-
-        if (event.getMessage().getContentRaw().equals("!configurador"))
-        {
-            System.out.println("configurador");
-            event.getChannel()
-                    .sendMessage("Por favor escribe a continuación el ID del **Servidor**:")
-                    .queue();
-            esperandoIdServidor.put(event.getAuthor().getIdLong(), true);
-        }
-    }
-    * */
-
     /**
     * Función que calcula el ID de un canal
     * @param event Evento de tipo MessageReceivedEvent
@@ -180,6 +140,9 @@ public class Configurador extends ListenerAdapter
             event.getChannel()
                     .sendMessage("Por favor escribe a continuación el ID del **Canal de Avisos** que se utilizará para mandar los avisos. Puede obtener el ID haciendo click derecho sobre un canal y copiar el código del ID:")
                     .queue();
+            /*
+            * Si en el mensaje utilizo el símbolo ** es porque en discord esto se traduce a un texto en negrita, para que se vea mejor visualmente
+            * */
             esperandoIdCanal.put(event.getAuthor().getIdLong(), true);
         }
     }
