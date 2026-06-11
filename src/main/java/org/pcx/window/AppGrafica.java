@@ -12,11 +12,16 @@ import java.awt.Font;
 import org.pcx.utilities.Fuente;
 
 import static javax.swing.SwingConstants.CENTER;
-
+/**
+* Aplicación gráfica que instancia un prototipo de aplicación
+* */
 public class AppGrafica {
     private File f;
     private boolean contador_hash = true;
     private boolean contador_jfc = true;
+    /**
+    * Instanciador de la aplicación gráfica prototipada
+    * */
     public AppGrafica()
     {
         //CREACIÓN DE COMPONENTES GRÁFICOS

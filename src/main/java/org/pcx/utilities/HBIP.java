@@ -9,11 +9,16 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-
+/**
+* Comprobador  de contraseñas. Te comprueba una contraseña y escribe a fichero si es segura o no.
+* */
 public class HBIP {
 
     private String password;
-
+/**
+* Instancias el comprobador.
+* @param password Contraseña a analizar
+* */
     public HBIP(String password) {
 
         this.password = password;

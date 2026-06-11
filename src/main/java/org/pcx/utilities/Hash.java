@@ -8,21 +8,37 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
+/**
+* Calculador de hash para comprobar integridad de archivos.
+* */
 public abstract class Hash
 {
+    /**
+    * Obtiene la huella MD5.
+    * @param file Archivo a calcular el hash
+    * */
     public static String getMD5(java.io.File file) throws IOException {
         return hashFile(file, "MD5");
     }
-
+    /**
+     * Obtiene la huella SHA1.
+     * @param file Archivo a calcular el hash
+     * */
     public static String getSHA1(java.io.File file) throws IOException {
         return hashFile(file, "SHA-1");
     }
-
+    /**
+     * Obtiene la huella SHA256.
+     * @param file Archivo a calcular el hash
+     * */
     public static String getSHA256(java.io.File file) throws IOException {
         return hashFile(file, "SHA-256");
     }
 
+    /**
+     * Obtiene la huella SHA512.
+     * @param file Archivo a calcular el hash
+     * */
     public static String getSHA512(java.io.File file) throws IOException {
         return hashFile(file, "SHA-512");
     }

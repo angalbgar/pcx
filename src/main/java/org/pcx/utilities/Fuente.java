@@ -3,14 +3,28 @@ package org.pcx.utilities;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-
+/**
+* Obtiene tres modelos de fuente basada en la fuente sanva_font.ttf.
+* */
 public class Fuente
 {
     private Font fuente;
+    /**
+    * Fuente en negrita con tamaño de 24 pixeles.
+    * */
     public static int fuente1 = 1;
+    /**
+    * Fuente en negrita con tamaño de 80 pixeles
+    * */
     public static int fuente2 = 2;
+    /**
+    * Fuente en negrita con tamaño de 50 pixeles.
+    * */
     public static int fuente3 = 3;
-
+/**
+* Instancia una fuente dependiendo de su atributo
+* @param fuente_n Tipo de fuente
+* */
     public Fuente(int fuente_n)
     {
         if (fuente_n == fuente1)
@@ -48,6 +62,9 @@ public class Fuente
             catch (FontFormatException e){System.out.println(e);}
         }
     }
-
+    /*
+    * Obtiene la fuente.
+    * @return Retorna la fuente.
+    * */
     public Font getFuente(){return fuente;}
 }

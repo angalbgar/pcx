@@ -12,7 +12,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
+/**
+* Comando aviso de la aplicación prototipada del JDA.
+* */
 public class FuncionAviso extends ListenerAdapter
 {
     private final Map<Long, Boolean> esperandoIdServidor = new HashMap<>();

@@ -1,0 +1,33 @@
+.contenedor-contacto {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #2343d4, #22172d);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.contenedor-contacto:hover {
+  transform: scale(105%);
+}
+
+.contenedor-contacto h2 {
+  margin-bottom: 10px;
+  font-size: 2em;
+  font-family:"fuente1";
+}
+
+.contenedor-contacto p {
+  font-size: 1.1em;
+  opacity: 0.9;
+  font-family: "fuente-texto";
+}
+
+.contacto-bold
+{
+    font-weight: bold;
+}
+

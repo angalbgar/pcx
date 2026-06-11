@@ -5,6 +5,9 @@ import org.pcx.utilities.*;
 import org.pcx.discord.*;
 import java.util.Scanner;
 import java.io.*;
+/**
+* Cargador básico que instancia la aplicación gráfica y la aplicación de java.
+* */
 public class Main {
     public static void main(String[] args) {
         //Cargo la aplicación gráfica

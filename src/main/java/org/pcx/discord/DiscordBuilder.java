@@ -10,7 +10,15 @@ import org.pcx.discord.functions.FuncionAviso;
 
 import java.awt.*;
 import java.util.Scanner;
-public class DiscordBuilder {
+/**
+* Clase que carga un prototipo de bot de discord de java
+* */
+public class DiscordBuilder
+{
+    /**
+    * Instanciador del prototipo de aplicación
+    * @param token El token de la aplicación de discord
+    * */
     public DiscordBuilder(String token)
     {
         JDA jda = JDABuilder.create(token,

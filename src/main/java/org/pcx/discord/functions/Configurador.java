@@ -6,12 +6,17 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.util.HashMap;
 import java.util.Map;
 import java.sql.*;
-
+/**
+* Comando de discord que permite instanciar un Listener ya prototipado
+* */
 public class Configurador extends ListenerAdapter
 {
     private final Map<Long, Boolean> esperandoIdServidor = new HashMap<>();
     private final Map<Long, Boolean> esperandoIdCanal = new HashMap<>();
-
+/**
+* Evento onMessageReceived por defecto del JDA
+* @param event Evento de tipo MessageReceivedEvent
+* */
     public void onMessageReceived(MessageReceivedEvent event)
     {
 
@@ -64,7 +69,10 @@ public class Configurador extends ListenerAdapter
     }
     * */
 
-
+    /**
+    * Función que calcula el ID de un canal
+    * @param event Evento de tipo MessageReceivedEvent
+    * */
     public void pedirIDCanal(MessageReceivedEvent event)
     {
         if (esperandoIdCanal.containsKey(event.getAuthor().getIdLong()))
